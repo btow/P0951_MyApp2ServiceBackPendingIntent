@@ -105,11 +105,11 @@ public class MainActivity extends AppCompatActivity {
 
         }
         //Перехват сообщений об остановке задач
-        if (resultCode == STATUS_FINISH) {
+        if (requestCode == STATUS_FINISH) {
 
             int result = data.getIntExtra(PARAM_RESULT, 0);
 
-            switch (resultCode) {
+            switch (requestCode) {
 
                 case TASK1_CODE :
                     tvTask1.setText(getString(R.string.task1) + getString(R.string._finish) + result);
