@@ -83,12 +83,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
         message = "requestCode = " + requestCode + ", resultCode = " + resultCode;
         Log.d(LOG_TAG, message);
         //Перехват сообщений о старте задач
         if (resultCode == STATUS_START) {
 
-            switch (resultCode) {
+            switch (requestCode) {
 
                 case TASK1_CODE :
                     tvTask1.setText(getString(R.string.task1) + getString(R.string._start));
@@ -105,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
         //Перехват сообщений об остановке задач
-        if (requestCode == STATUS_FINISH) {
+        if (resultCode == STATUS_FINISH) {
 
             int result = data.getIntExtra(PARAM_RESULT, 0);
 
